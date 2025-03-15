@@ -4,6 +4,7 @@ import {Provider, useSelector} from 'react-redux';
 import store from './src/stores';
 import LoginButton from './src/components/LoginButton';
 import {UserState} from './src/stores/types';
+import Chat from './src/chat/Index';
 
 const AppContent = () => {
   const {isLogin, nickname} = useSelector((state: UserState) => state);
@@ -13,12 +14,8 @@ const AppContent = () => {
       <Text style={styles.text}>
         {isLogin ? `환영합니다, ${nickname}님!` : '로그인이 필요합니다.'}
       </Text>
-      {isLogin && (
-        <View>
-          <Text>test</Text>
-        </View>
-      )}
-      <LoginButton />
+      {isLogin && <Chat />}
+      {!isLogin && <LoginButton />}
     </SafeAreaView>
   );
 };
