@@ -97,7 +97,7 @@ const useSocket = (roomId: string) => {
       client.deactivate(); // 기존 WebSocket 연결을 해제
       setIsConnected(false); // 연결 상태도 false로 변경
     };
-  }, [roomId]); // ✅ roomId가 변경되면 다시 연결!
+  }, [roomId]); // roomId가 변경되면 다시 연결
 
   /*
     sendMessage 함수: 서버로 메시지를 보낼 때 사용
