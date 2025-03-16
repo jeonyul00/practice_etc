@@ -2,7 +2,6 @@ import {useCallback} from 'react';
 import io, {Socket} from 'socket.io-client';
 
 const url = 'https://test/chat';
-
 const sockets: {[key: string]: Socket} = {};
 
 const useSocket2 = (workspace?: string): [Socket | undefined, () => void] => {
