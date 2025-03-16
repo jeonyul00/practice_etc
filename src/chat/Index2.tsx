@@ -15,9 +15,7 @@ const Chat2 = () => {
   const [messages, setMessages] = useState<string[]>([]);
 
   useEffect(() => {
-    if (!socket) {
-      return;
-    }
+    if (!socket) return;
 
     // 채팅방 입장 시 지난 메시지 요청
     socket.emit('joinRoom', 'workspaceId1');
@@ -44,9 +42,7 @@ const Chat2 = () => {
 
   // 메시지 전송
   const handleSend = () => {
-    if (message.trim() === '' || !socket) {
-      return;
-    }
+    if (message.trim() === '' || !socket) return;
     socket.emit('message', message);
     setMessages(prev => [...prev, `나: ${message}`]);
     setMessage('');
